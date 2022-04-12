@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import * as wasm from "./pkg";
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'WebCalculator';
+  title = 'L';
+
+  add(a: number, b: number): void {
+    this.title = wasm.add(2, 2).toString()
+  }
 }
