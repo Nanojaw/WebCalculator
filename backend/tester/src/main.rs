@@ -1,7 +1,5 @@
 use backend;
 
 fn main() {
-    println!("Gello, world!");
-
-    println!("{}", backend::calculator_backend::parse_regular_stuff("123 * 123"));
+    println!("{}", backend::calculator_backend::parse_regular_stuff("hypot(3.0, 4.0)"));
 }

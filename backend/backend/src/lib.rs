@@ -1,11 +1,10 @@
 pub mod calculator_backend {
     use evalexpr::*;
 
-    pub fn parse_regular_stuff(expr_str: &str) -> bool {
-        println!("{}", expr_str);
-        
-        let result: EvalexprResult<String> = eval_string(expr_str);
+    pub fn parse_regular_stuff(expr_str: &str) -> f64 { 
+        let result: EvalexprResult<FloatType> = eval_float(expr_str);
 
-        result.is_err()
+        result.unwrap()
+
     }
 }
