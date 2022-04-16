@@ -394,7 +394,16 @@ return _.multiply(sum, product)
 	 * @param variable The variable with respect to which to differentiate.
 	 * @param n Calculate the nth derivative.
 	 */
-	export function diff(expression: ExpressionParam, variable: string, n?: int): Expression
+	export function diff(expression: ExpressionParam, variable?: string, n?: int): Expression
+
+	/**
+	 *
+	 * @param expression Returns the appropriate value if possible otherwise it returns the function with the simplified expression.
+	 * @param variable The variable with respect to which to differentiate.
+	 * @param n Calculate the nth derivative.
+	 * @param x_value Replace x with value
+	 */
+	export function diff(expression: ExpressionParam, variable?: string, n?: int, x_value?: int): Expression
 
 	////////// ALGEBRA
 
