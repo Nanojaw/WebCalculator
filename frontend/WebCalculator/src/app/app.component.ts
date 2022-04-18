@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, Input} from '@angular/core';
 import * as wasm from "./pkg";
 
 @Component({
@@ -7,9 +7,19 @@ import * as wasm from "./pkg";
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'L';
+  @Input() expression = "";
 
-  add(a: number, b: number): void {
-    this.title = wasm.add(2, 2).toString()
+  onKeyClicked(key: string) {
+    if(key == "-") {
+      if (this.expression.startsWith("-")) {
+        this.expression = this.expression.substring(1);
+      }
+      else {
+        this.expression = "-" + this.expression;
+      }
+    }
+    else {
+      this.expression += key;
+    }
   }
 }

@@ -1,4 +1,6 @@
 <div class="content" role="main">
-  <p>{{title}}</p>
-  <button (click)="add(1, 2)">click</button>
+  <app-search class="search-container"></app-search>
+  <app-expression class="expression-container" [expression]="expression"></app-expression>
+  <app-keypad class="keypad-container" (keyEvt)="onKeyClicked($event)"></app-keypad>
+  <app-history class="history-container"></app-history>
 </div>

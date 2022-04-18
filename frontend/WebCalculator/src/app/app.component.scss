@@ -1,0 +1,41 @@
+.content {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  grid-template-rows: auto auto;
+  gap: 5px;
+
+  width: 99.2vw;
+  height: 98vh;
+}
+
+.search-container {
+  grid-column: 1;
+  grid-row: 1 / span 2;
+
+  border: thin solid #5f5f5f;
+  border-radius: 5px;
+}
+
+.expression-container {
+  grid-column: 2;
+  grid-row: 1;
+
+  border: thin solid #5f5f5f;
+  border-radius: 5px;
+}
+
+.keypad-container {
+  grid-column: 2;
+  grid-row: 2;
+
+  border: thin solid #5f5f5f;
+  border-radius: 5px;
+}
+
+.history-container {
+  grid-column: 3;
+  grid-row: 1 / span 2;
+
+  border: thin solid #5f5f5f;
+  border-radius: 5px;
+}
