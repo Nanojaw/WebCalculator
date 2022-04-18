@@ -10,7 +10,7 @@ export class AppComponent {
   @Input() expression = "";
 
   onKeyClicked(key: string) {
-    if(key == "-") {
+    if(key == "negate") {
       if (this.expression.startsWith("-")) {
         this.expression = this.expression.substring(1);
       }

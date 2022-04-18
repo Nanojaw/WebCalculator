@@ -13,7 +13,7 @@ import { SearchComponent } from './search/search.component';
     HistoryComponent,
     KeypadComponent,
     ExpressionComponent,
-    SearchComponent
+    SearchComponent,
   ],
   imports: [
     BrowserModule
