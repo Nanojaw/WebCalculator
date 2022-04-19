@@ -13,9 +13,4 @@ export class ExpressionComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
-  calculate() {
-    //TODO Implement
-    alert(this.expression)
-  }
 }
