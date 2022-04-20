@@ -1,4 +1,4 @@
-import {Component, ElementRef, Input, ViewChild} from '@angular/core';
+import { Component, Input } from '@angular/core';
 import * as wasm from './pkg';
 
 @Component({
@@ -18,9 +18,6 @@ export class AppComponent {
       }
     } else {
       this.expression += key;
-      if(this.expression.length % 45 == 0) {
-        this.expression += "\n"
-      }
     }
   }
 
