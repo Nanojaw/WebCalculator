@@ -10,12 +10,32 @@ export class KeypadComponent implements OnInit {
 
   @Output() calcEvt = new EventEmitter<null>();
 
+  @Output() moveEvt = new EventEmitter<boolean>();
+
+  @Output() clearEvt = new EventEmitter<null>();
+
   constructor() {}
 
   ngOnInit(): void {}
 
   calculate() {
     this.calcEvt.emit();
+  }
+
+  left() {
+    this.moveEvt.emit(false);
+  }
+
+  right() {
+    this.moveEvt.emit(true);
+  }
+
+  clear() {
+    this.clearEvt.emit();
+  }
+
+  remove() {
+  this.keyEvt.emit('remove')
   }
 
   //region Basic keys
