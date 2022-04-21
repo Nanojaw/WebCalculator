@@ -1,4 +1,6 @@
 #calculate {
+  font-size: large;
+
   width: 100%;
   height: 30px;
 }
@@ -9,18 +11,22 @@
 }
 
 #clear {
+  font-size: large;
   width: 20%;
 }
 
 #left {
+  font-size: large;
   width: 30%;
 }
 
 #right {
+  font-size: large;
   width: 30%;
 }
 
 #remove {
+  font-size: large;
   width: 20%;
 }
 
@@ -36,4 +42,7 @@
 
 .basic-key {
   background-color: lightgray;
+
+  font-size: x-large;
+  font-weight: bold;
 }

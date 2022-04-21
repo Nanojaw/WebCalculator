@@ -6,6 +6,7 @@ import { HistoryComponent } from './history/history.component';
 import { KeypadComponent } from './keypad/keypad.component';
 import { ExpressionComponent } from './expression/expression.component';
 import { SearchComponent } from './search/search.component';
+import { FunctionComponent } from './function/function.component';
 
 @NgModule({
   declarations: [
@@ -14,6 +15,7 @@ import { SearchComponent } from './search/search.component';
     KeypadComponent,
     ExpressionComponent,
     SearchComponent,
+    FunctionComponent,
   ],
   imports: [
     BrowserModule
