@@ -1,17 +1,31 @@
-<div class="main-grid">
-  
+<button id="calculate" (click)="calculate()">Calculate</button>
 
-  <!-- Basic key -->
+<div id="special-keys">
+  <button id="clear" (click)="clear()">Clear</button>
+  <button id="left" (click)="left()">&larr;</button>
+  <button id="right" (click)="right()">&rarr;</button>
+  <button id="remove" (click)="remove()">&#9003;</button>
+</div>
+
+<div id="main-grid">
+  <!-- Extra keys -->
+
+
+  <!-- Basic keys -->
   <button class="basic-key" (click)="key7()">7</button>
   <button class="basic-key" (click)="key8()">8</button>
   <button class="basic-key" (click)="key9()">9</button>
+  <button class="basic-key" (click)="keyDivide()">/</button>
   <button class="basic-key" (click)="key4()">4</button>
   <button class="basic-key" (click)="key5()">5</button>
   <button class="basic-key" (click)="key6()">6</button>
+  <button class="basic-key" (click)="keyMultiply()">*</button>
   <button class="basic-key" (click)="key1()">1</button>
   <button class="basic-key" (click)="key2()">2</button>
   <button class="basic-key" (click)="key3()">3</button>
+  <button class="basic-key" (click)="keySubtract()">-</button>
   <button class="basic-key" (click)="keyPoint()">.</button>
   <button class="basic-key" (click)="key0()">0</button>
   <button class="basic-key" (click)="keyNegate()">-/+</button>
+  <button class="basic-key" (click)="keyAdd()">+</button>
 </div>
