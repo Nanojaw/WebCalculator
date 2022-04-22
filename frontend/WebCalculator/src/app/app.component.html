@@ -1,6 +1,6 @@
 <div class="content" role="main">
   <app-search class="search-container"></app-search>
-  <app-expression class="expression-container" [expression]="expression"></app-expression>
+  <app-expression class="expression-container" [expression]="displayed"></app-expression>
   <app-keypad class="keypad-container" (keyEvt)="onKeyClicked($event)" (calcEvt)="calculate()" (moveEvt)="move($event)" (clearEvt)="clear()"></app-keypad>
   <app-history class="history-container"></app-history>
 </div>

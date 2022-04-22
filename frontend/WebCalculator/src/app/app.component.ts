@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import {Component, Input} from '@angular/core';
 import * as wasm from './pkg';
 
 @Component({
@@ -7,59 +7,68 @@ import * as wasm from './pkg';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  @Input() expression = '<';
+  @Input() displayed = '<';
+
+  expression: string[] = [];
 
   cursor = 0;
 
   onKeyClicked(key: string) {
     if (key == 'negate') {
-      if (this.expression.startsWith('-')) {
-        this.expression = this.expression.slice(1);
-        this.cursor--;
-      } else {
-        this.expression = '-' + this.expression;
+      let minusI = this.expression.reverse().indexOf('-', this.cursor)
+      let spaceI = this.expression.reverse().indexOf(' ', this.cursor)
+      if (minusI > spaceI) {
+        this.expression = this.expression.reverse().splice(spaceI, 1, ' -');
         this.cursor++;
+      } else {
+        this.expression = this.expression.splice(this.expression.indexOf('-'), 1);
+        this.cursor--;
       }
     } else if (key == 'remove') {
-      this.expression = this.expression
+      this.displayed = this.displayed
         .slice(0, this.cursor - 1)
-        .concat(this.expression.slice(this.cursor));
+        .concat(this.displayed.slice(this.cursor));
       if (this.cursor > 0) this.cursor--;
     } else {
-      this.expression = this.expression
+      this.displayed = this.displayed
         .slice(0, this.cursor)
-        .concat(key, this.expression.slice(this.cursor));
-      this.cursor++;
+        .concat(key, this.displayed.slice(this.cursor));
+      this.cursor += key.length;
     }
 
-    // Insert cursor
-    this.expression = this.expression.replace(/</g, '');
-    this.expression = this.expression
-      .slice(0, this.cursor)
-      .concat('<', this.expression.slice(this.cursor));
+    this.display()
   }
 
   calculate() {
-
-    alert(this.expression);
-    console.log(wasm.parse_regular_stuff("1 + 1"));
+    console.log(wasm.parse_regular_stuff(this.expression.join('')));
   }
 
   move(direction: boolean) {
     if (direction) {
-      if (this.expression.length > this.cursor) this.cursor++;
+      if (this.displayed.length > this.cursor) this.cursor++;
     } else {
       if (this.cursor > 0) this.cursor--;
     }
 
     // Insert cursor
-    this.expression = this.expression.replace(/</g, '');
-    this.expression = this.expression
+    this.displayed = this.displayed.replace(/</g, '');
+    this.displayed = this.displayed
       .slice(0, this.cursor)
-      .concat('<', this.expression.slice(this.cursor));
+      .concat('<', this.displayed.slice(this.cursor));
   }
 
   clear() {
-    this.expression = '<';
+    this.displayed = '<';
+    this.expression = [];
+  }
+
+  display() {
+    this.displayed = this.expression.join('').replace(' ', '');
+
+    // Insert cursor
+    this.displayed = this.displayed.replace(/</g, '');
+    this.displayed = this.displayed
+      .slice(0, this.cursor)
+      .concat('<', this.displayed.slice(this.cursor));
   }
 }
