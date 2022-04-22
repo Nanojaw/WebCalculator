@@ -42,7 +42,7 @@ export class AppComponent {
   calculate() {
 
     alert(this.expression);
-    wasm.parse_regular_stuff("1 + 1");
+    console.log(wasm.parse_regular_stuff("1 + 1"));
   }
 
   move(direction: boolean) {
