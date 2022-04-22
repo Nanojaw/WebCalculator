@@ -1,0 +1,12 @@
+[
+    {
+        "name": "sqrt",
+        "description": "gets square root of number",
+        "expression": "sqrt"
+    },
+    {
+        "name": "power",
+        "description": "powers first number to second number",
+        "expression": "pow"
+    }
+]
