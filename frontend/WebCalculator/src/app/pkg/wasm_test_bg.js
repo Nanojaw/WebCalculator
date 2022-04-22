@@ -75,3 +75,9 @@ export function parse_regular_stuff(expr_str) {
     return ret;
 }
 
+/**
+*/
+export function test() {
+    wasm.test();
+}
+

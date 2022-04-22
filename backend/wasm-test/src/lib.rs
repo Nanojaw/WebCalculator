@@ -17,3 +17,8 @@ pub fn parse_regular_stuff(expr_str: &str) -> f64 {
     result.unwrap()
 
 }
+
+#[wasm_bindgen]
+pub fn test() -> () {
+    println!("test");
+}

@@ -5,3 +5,6 @@
 * @returns {number}
 */
 export function parse_regular_stuff(expr_str: string): number;
+/**
+*/
+export function test(): void;
