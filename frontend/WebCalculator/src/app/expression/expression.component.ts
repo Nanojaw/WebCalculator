@@ -9,7 +9,8 @@ export class ExpressionComponent implements OnInit {
 
   @Input() expression = "";
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit(): void {
   }

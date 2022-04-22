@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 
 @Component({
   selector: 'app-keypad',
@@ -14,9 +14,11 @@ export class KeypadComponent implements OnInit {
 
   @Output() clearEvt = new EventEmitter<null>();
 
-  constructor() {}
+  constructor() {
+  }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+  }
 
   calculate() {
     this.calcEvt.emit();
@@ -35,7 +37,7 @@ export class KeypadComponent implements OnInit {
   }
 
   remove() {
-  this.keyEvt.emit('remove')
+    this.keyEvt.emit('remove')
   }
 
   //region Basic keys

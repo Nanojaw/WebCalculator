@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { ExpressionComponent } from './expression.component';
+import {ExpressionComponent} from './expression.component';
 
 describe('ExpressionComponent', () => {
   let component: ExpressionComponent;
@@ -8,9 +8,9 @@ describe('ExpressionComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ExpressionComponent ]
+      declarations: [ExpressionComponent]
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {

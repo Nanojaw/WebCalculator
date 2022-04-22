@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { KeypadComponent } from './keypad.component';
+import {KeypadComponent} from './keypad.component';
 
 describe('KeypadComponent', () => {
   let component: KeypadComponent;
@@ -8,9 +8,9 @@ describe('KeypadComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ KeypadComponent ]
+      declarations: [KeypadComponent]
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {

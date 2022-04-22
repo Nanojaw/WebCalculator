@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-function',
@@ -10,7 +10,8 @@ export class FunctionComponent implements OnInit {
   name = 'Name'
   description = 'description';
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit(): void {
   }
