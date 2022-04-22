@@ -31,6 +31,12 @@ dependencies = [
 ]
 
 [[package]]
+name = "evalexpr"
+version = "7.2.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "1d4fd7bd9e32c1205549decf6f36772d7b606a579b26afaffa335ae148151a5d"
+
+[[package]]
 name = "js-sys"
 version = "0.3.57"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -47,9 +53,9 @@ checksum = "e2abad23fbc42b3700f2f279844dc832adb2b2eb069b2df918f455c4e18cc646"
 
 [[package]]
 name = "libc"
-version = "0.2.122"
+version = "0.2.124"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "ec647867e2bf0772e28c8bcde4f0d19a9216916e890543b5a03ed8ef27b8f259"
+checksum = "21a41fed9d98f27ab1c6d161da622a4fa35e8a54a8adc24bbf3ddd0ef70b0e50"
 
 [[package]]
 name = "log"
@@ -202,6 +208,7 @@ name = "wasm-test"
 version = "0.1.0"
 dependencies = [
  "console_error_panic_hook",
+ "evalexpr",
  "wasm-bindgen",
  "wasm-bindgen-test",
  "wee_alloc",
