@@ -90,19 +90,23 @@ export class KeypadComponent implements OnInit {
   }
 
   keyDivide() {
-    this.keyEvt.emit(' / ');
+    this.keyEvt.emit('/');
+    this.keyEvt.emit(' ');
   }
 
   keyMultiply() {
-    this.keyEvt.emit(' * ');
+    this.keyEvt.emit('*');
+    this.keyEvt.emit(' ');
   }
 
   keySubtract() {
-    this.keyEvt.emit(' - ');
+    this.keyEvt.emit('-');
+    this.keyEvt.emit(' ');
   }
 
   keyAdd() {
-    this.keyEvt.emit(' + ');
+    this.keyEvt.emit('+');
+    this.keyEvt.emit(' ');
   }
 
   //endregion

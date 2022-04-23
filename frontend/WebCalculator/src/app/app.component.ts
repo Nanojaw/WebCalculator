@@ -1,4 +1,4 @@
-import {Component, Input} from '@angular/core';
+import { Component, Input } from '@angular/core';
 import * as wasm from './pkg';
 
 @Component({
@@ -15,55 +15,77 @@ export class AppComponent {
 
   onKeyClicked(key: string) {
     if (key == 'negate') {
-      let minusI = this.expression.reverse().indexOf('-', this.cursor)
-      let spaceI = this.expression.reverse().indexOf(' ', this.cursor)
-      if (minusI > spaceI) {
-        this.expression = this.expression.reverse().splice(spaceI, 1, ' -');
-        this.cursor++;
+      let reverse = this.expression.reverse();
+      let minusI =
+        reverse.indexOf('-', reverse.length + 1 - this.cursor) == -1
+          ? reverse.length
+          : reverse.indexOf('-', reverse.length + 1 - this.cursor);
+      let spaceI =
+        reverse.indexOf(' ', reverse.length + 1 - this.cursor) == -1
+          ? reverse.length
+          : reverse.indexOf(' ', reverse.length + 1 - this.cursor);
+
+      console.log(reverse)
+
+      if (minusI >= spaceI) {
+        this.expression = reverse
+          .slice(0, spaceI)
+          .concat('-', reverse.slice(spaceI))
+          .reverse();
+        this.cursor += 2;
       } else {
-        this.expression = this.expression.splice(this.expression.indexOf('-'), 1);
-        this.cursor--;
+        this.expression = reverse
+          .slice(0, minusI)
+          .concat(reverse.slice(minusI + 1))
+          .reverse();
+        this.cursor -= 2;
       }
     } else if (key == 'remove') {
-      this.displayed = this.displayed
+      this.expression = this.expression
         .slice(0, this.cursor - 1)
-        .concat(this.displayed.slice(this.cursor));
-      if (this.cursor > 0) this.cursor--;
+        .concat(this.expression.slice(this.cursor));
+      if (this.cursor > 0) {
+        this.cursor--;
+      }
     } else {
-      this.displayed = this.displayed
+      this.expression = this.expression
         .slice(0, this.cursor)
-        .concat(key, this.displayed.slice(this.cursor));
-      this.cursor += key.length;
+        .concat(key, this.expression.slice(this.cursor));
+      this.cursor++;
     }
 
-    this.display()
+    this.display();
   }
 
   calculate() {
-    console.log(wasm.parse_regular_stuff(this.expression.join('')));
+    alert(wasm.parse_regular_stuff(this.expression.join('')));
   }
 
   move(direction: boolean) {
     if (direction) {
-      if (this.displayed.length > this.cursor) this.cursor++;
+      if (this.displayed.length > this.cursor) {
+        this.cursor++;
+        //if(this.expression[this.cursor] == ' ') this.cursor++;
+      }
     } else {
-      if (this.cursor > 0) this.cursor--;
+      if (this.cursor > 0) {
+        this.cursor--;
+        //if(this.expression[this.cursor] == ' ') this.cursor--;
+      }
     }
 
-    // Insert cursor
-    this.displayed = this.displayed.replace(/</g, '');
-    this.displayed = this.displayed
-      .slice(0, this.cursor)
-      .concat('<', this.displayed.slice(this.cursor));
+    this.display();
   }
 
   clear() {
     this.displayed = '<';
     this.expression = [];
+
+    this.cursor = 0;
   }
 
   display() {
-    this.displayed = this.expression.join('').replace(' ', '');
+    this.displayed = this.expression.join('').replace(/ /g, '');
 
     // Insert cursor
     this.displayed = this.displayed.replace(/</g, '');
