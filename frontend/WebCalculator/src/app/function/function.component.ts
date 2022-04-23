@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-function',
@@ -7,8 +7,8 @@ import {Component, OnInit} from '@angular/core';
 })
 export class FunctionComponent implements OnInit {
 
-  name = 'Name'
-  description = 'description';
+  @Input() name = 'Name'
+  @Input() description = 'description';
 
   constructor() {
   }

@@ -51,6 +51,6 @@ export class AppComponent {
   }
 
   calculate() {
-    alert(wasm.parse_regular_stuff('1.0+1.0'));
+    alert(wasm.parse_regular_stuff(this.expression.replace(/</, '')));
   }
 }

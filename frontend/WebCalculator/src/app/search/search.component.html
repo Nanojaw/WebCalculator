@@ -1,4 +1,7 @@
 <input name="search-input">
-<menu>
-  <app-function></app-function>
-</menu>
+<ul id="search-results">
+  <li *ngFor="let func in functions">
+    <app-function [name]="func.name" [description]="func.description"></app-function>
+    {{func.name}}
+  </li>
+</ul>
