@@ -1,4 +1,4 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-keypad',
@@ -8,17 +8,15 @@ import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 export class KeypadComponent implements OnInit {
   @Output() keyEvt = new EventEmitter<string>();
 
-  @Output() calcEvt = new EventEmitter<null>();
-
   @Output() moveEvt = new EventEmitter<boolean>();
 
+  @Output() calcEvt = new EventEmitter<null>();
   @Output() clearEvt = new EventEmitter<null>();
+  @Output() removeEvt = new EventEmitter<null>();
 
-  constructor() {
-  }
+  constructor() {}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   calculate() {
     this.calcEvt.emit();
@@ -37,7 +35,7 @@ export class KeypadComponent implements OnInit {
   }
 
   remove() {
-    this.keyEvt.emit('remove')
+    this.removeEvt.emit();
   }
 
   //region Basic keys
@@ -85,28 +83,24 @@ export class KeypadComponent implements OnInit {
     this.keyEvt.emit('.');
   }
 
-  keyNegate() {
-    this.keyEvt.emit('negate');
+  keyParenthesis() {
+    this.keyEvt.emit('()');
   }
 
   keyDivide() {
     this.keyEvt.emit('/');
-    this.keyEvt.emit(' ');
   }
 
   keyMultiply() {
     this.keyEvt.emit('*');
-    this.keyEvt.emit(' ');
   }
 
   keySubtract() {
     this.keyEvt.emit('-');
-    this.keyEvt.emit(' ');
   }
 
   keyAdd() {
     this.keyEvt.emit('+');
-    this.keyEvt.emit(' ');
   }
 
   //endregion
