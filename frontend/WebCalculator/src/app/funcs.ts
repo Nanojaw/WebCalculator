@@ -5,6 +5,6 @@ export interface func {
 }
 
 export const funcs: func[] = [
-  { name: 'sqrt', description: 'get square root', expression: 'sqrt' },
-  { name: 'power', description: 'power first to second', expression: 'pow' },
+  { name: 'sqrt', description: 'get square root', expression: 'sqrt()' },
+  { name: 'power', description: 'power first to second', expression: 'pow(,)' },
 ];

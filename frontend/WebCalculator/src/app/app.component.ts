@@ -53,4 +53,12 @@ export class AppComponent {
   calculate() {
     alert(wasm.parse_regular_stuff(this.expression.replace(/</, '')));
   }
+
+  addExpr(func: string) {
+    this.expression = this.expression
+      .slice(0, this.cursor)
+      .concat(func, this.expression.slice(this.cursor));
+    this.cursor += func.indexOf('(') + 1;
+    this.display();
+  }
 }

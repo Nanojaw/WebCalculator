@@ -1,7 +1,6 @@
 <input name="search-input">
 <ul id="search-results">
-  <li *ngFor="let func in functions">
-    <app-function [name]="func.name" [description]="func.description"></app-function>
-    {{func.name}}
+  <li *ngFor="let func of functions">
+    <app-function [name]="func.name" [description]="func.description" [expression]="func.expression" (addEvt)="add($event)"></app-function>
   </li>
 </ul>

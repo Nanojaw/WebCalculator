@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 
 import {func, funcs} from '../funcs'
 
@@ -10,10 +10,15 @@ import {func, funcs} from '../funcs'
 export class SearchComponent implements OnInit {
   functions = funcs;
 
+  @Output() addEvt = new EventEmitter<string>();
+
   constructor() {
   }
 
   ngOnInit(): void {
   }
 
+  add(expression: string) {
+    this.addEvt.emit(expression);
+  }
 }
