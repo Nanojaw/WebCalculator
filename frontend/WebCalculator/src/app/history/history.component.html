@@ -1,3 +1,5 @@
-<div>
-  <p>history works!</p>
-</div>
+<ul id="history-list">
+  <li *ngFor="let action of history">
+    <button class="history-button" (click)="selected(action)">{{action}}</button>
+  </li>
+</ul>

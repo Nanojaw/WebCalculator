@@ -1,16 +1,20 @@
-import {Component, OnInit} from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-history',
   templateUrl: './history.component.html',
-  styleUrls: ['./history.component.scss']
+  styleUrls: ['./history.component.scss'],
 })
 export class HistoryComponent implements OnInit {
+  @Input() history: string[] = [];
 
-  constructor() {
+  @Output() clickedHistory = new EventEmitter<string>();
+
+  constructor() {}
+
+  ngOnInit(): void {}
+
+  selected(action: string) {
+    this.clickedHistory.emit(action);
   }
-
-  ngOnInit(): void {
-  }
-
 }

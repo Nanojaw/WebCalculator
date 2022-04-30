@@ -10,6 +10,8 @@ export class AppComponent {
   @Input() expression = '<';
 
   cursor = 0;
+  result = '';
+  history: string[] = [];
 
   onKeyClicked(key: string) {
     this.expression = this.expression
@@ -34,12 +36,51 @@ export class AppComponent {
   }
 
   remove() {
-    this.expression = this.expression
-      .slice(0, this.cursor - 1)
-      .concat(this.expression.slice(this.cursor));
-    if (this.cursor > 0) {
+    let char = this.expression[this.cursor - 1];
+
+    if (!isNaN(Number(char))) {
+      this.expression = this.expression
+        .slice(0, this.cursor - 1)
+        .concat(this.expression.slice(this.cursor));
+      if (this.cursor > 0) {
+        this.cursor--;
+      }
+    } else if (char == '(') {
+      //TODO: Find and delete both parenthesis
+
+      let pairIndex = 0;
+
+      let pairs = 1;
+      let open = this.cursor;
+      let close = this.cursor;
+      while (pairs > 0) {
+        pairIndex = close;
+
+        open =
+          this.expression.indexOf('(', open + 1) > 0
+            ? this.expression.indexOf('(', open + 1)
+            : this.expression.length;
+        close =
+          this.expression.indexOf(')', close + 1) > 0
+            ? this.expression.indexOf(')', close + 1)
+            : this.expression.length;
+
+        console.log(open);
+        console.log(close);
+
+        open < close ? pairs++ : pairs--;
+      }
+
+      if (pairIndex != close && open != close)
+        pairIndex = this.expression.indexOf(')', this.cursor);
+
+      this.expression = this.expression
+        .slice(0, this.cursor - 1)
+        .concat(this.expression.slice(pairIndex + 1));
       this.cursor--;
     }
+
+    this.display();
   }
 
   display() {
@@ -51,7 +92,11 @@ export class AppComponent {
   }
 
   calculate() {
-    alert(wasm.parse_regular_stuff(this.expression.replace(/</, '')));
+    this.result = wasm
+      .parse_regular_stuff(this.expression.replace(/</, ''))
+      .toString();
+
+    this.history.push(this.expression.replace(/</, ''));
   }
 
   addExpr(func: string) {
@@ -59,6 +104,12 @@ export class AppComponent {
       .slice(0, this.cursor)
       .concat(func, this.expression.slice(this.cursor));
     this.cursor += func.indexOf('(') + 1;
+    this.display();
+  }
+
+  pasteHistory(action: string) {
+    this.expression = action;
+    this.cursor = action.length;
     this.display();
   }
 }

@@ -1,7 +1,7 @@
 <div class="content" role="main">
   <app-search class="search-container" (addEvt)="addExpr($event)"></app-search>
-  <app-expression class="expression-container" [expression]="expression"></app-expression>
+  <app-expression class="expression-container" [expression]="expression" [result]="result"></app-expression>
   <app-keypad class="keypad-container" (keyEvt)="onKeyClicked($event)" (calcEvt)="calculate()" (moveEvt)="move($event)"
               (clearEvt)="clear()" (removeEvt)="remove()"></app-keypad>
-  <app-history class="history-container"></app-history>
+  <app-history class="history-container" [history]="history" (clickedHistory)="pasteHistory($event)"></app-history>
 </div>
