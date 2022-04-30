@@ -46,7 +46,7 @@ export class AppComponent {
         this.cursor--;
       }
     } else if (char == '(') {
-      //TODO: Find and delete both parenthesis
+      //TODO: Fix bugs with ((<()()))
 
       let pairIndex = 0;
 
@@ -71,7 +71,7 @@ export class AppComponent {
         open < close ? pairs++ : pairs--;
       }
 
-      if (pairIndex != close && open != close)
+      if (pairIndex == this.cursor)
         pairIndex = this.expression.indexOf(')', this.cursor);
 
       this.expression = this.expression
