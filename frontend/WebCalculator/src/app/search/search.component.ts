@@ -10,6 +10,8 @@ import {func, funcs} from '../funcs'
 export class SearchComponent implements OnInit {
   functions = funcs;
 
+  search = '';
+
   @Output() addEvt = new EventEmitter<string>();
 
   constructor() {
@@ -20,5 +22,11 @@ export class SearchComponent implements OnInit {
 
   add(expression: string) {
     this.addEvt.emit(expression);
+  }
+
+  submit(event: KeyboardEvent) {
+    if (event.key == 'Enter') {
+      this.functions.sort()
+    }
   }
 }

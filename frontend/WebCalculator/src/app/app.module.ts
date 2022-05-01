@@ -7,6 +7,7 @@ import {KeypadComponent} from './keypad/keypad.component';
 import {ExpressionComponent} from './expression/expression.component';
 import {SearchComponent} from './search/search.component';
 import {FunctionComponent} from './function/function.component';
+import {FormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -17,11 +18,8 @@ import {FunctionComponent} from './function/function.component';
     SearchComponent,
     FunctionComponent,
   ],
-  imports: [
-    BrowserModule
-  ],
+  imports: [BrowserModule, FormsModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule {
-}
+export class AppModule {}
