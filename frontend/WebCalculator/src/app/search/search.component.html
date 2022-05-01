@@ -1,4 +1,4 @@
-<input id="search-input" (keyup)="submit($event)" [(ngModel)]="search" type="text">
+<input id="search-input" (keyup)="submit($event)">
 <ul id="search-results">
   <li *ngFor="let func of functions">
     <app-function [name]="func.name" [description]="func.description" [expression]="func.expression" (addEvt)="add($event)"></app-function>
