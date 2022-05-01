@@ -52,28 +52,13 @@ export class AppComponent {
       let pairIndex = 0;
 
       let pairs = 1;
-      let open = this.cursor;
-      let close = this.cursor;
-      while (pairs > 0) {
-        pairIndex = close;
 
-        open =
-          this.expression.indexOf('(', open + 1) > 0
-            ? this.expression.indexOf('(', open + 1)
-            : this.expression.length;
-        close =
-          this.expression.indexOf(')', close + 1) > 0
-            ? this.expression.indexOf(')', close + 1)
-            : this.expression.length;
+      for (let i = this.cursor; i < this.expression.lastIndexOf(')') + 1; i++) {
+        if (this.expression[i] == '(') pairs++;
+        else if (this.expression[i] == ')') pairs--;
 
-        console.log(open);
-        console.log(close);
-
-        open < close ? pairs++ : pairs--;
+        if (pairs == 0) pairIndex = i;
       }
-
-      if (pairIndex == this.cursor)
-        pairIndex = this.expression.indexOf(')', this.cursor);
 
       this.expression = this.expression
         .slice(0, this.cursor - 1)
