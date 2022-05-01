@@ -1,4 +1,4 @@
-<input name="search-input">
+<input id="search-input">
 <ul id="search-results">
   <li *ngFor="let func of functions">
     <app-function [name]="func.name" [description]="func.description" [expression]="func.expression" (addEvt)="add($event)"></app-function>

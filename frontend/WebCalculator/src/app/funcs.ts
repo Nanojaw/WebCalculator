@@ -33,7 +33,7 @@ export const funcs: func[] = [
   { name: 'sqrt', description: 'Returns sqrt of x', expression: 'sqrt()' },
   { name: 'cbrt', description: 'Returns cbrt of x', expression: 'cbrt()' },
 
-  { name: 'hypotenuse', description: 'Calculates hypotenus of a trinagle with sides x and y', expression: 'hypot(,)' },
+  { name: 'hypotenuse', description: 'Calculates hypotenuse of a triangle with sides x and y', expression: 'hypot(,)' },
 
   { name: 'floor', description: 'Rounds x down', expression: 'floor()' },
   { name: 'round', description: 'Rounds x', expression: 'round()' },
