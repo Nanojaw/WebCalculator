@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import * as wasm from '../../backends/backend_rust/rust-to-wasm/pkg';
-import { backend } from '../../backends/backend_ts/backend';
+import { backendCalc } from '../../backends/backend_ts/backend/backend';
 
 @Component({
   selector: 'app-root',
@@ -46,6 +46,7 @@ export class AppComponent {
   clear() {
     this.expression = '<';
     this.cursor = 0;
+    this.result = '';
   }
 
   remove() {
