@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import * as wasm from './pkg';
+import { backend } from '../../backend/backend';
 
 @Component({
   selector: 'app-root',
