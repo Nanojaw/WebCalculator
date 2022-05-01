@@ -3,11 +3,17 @@
   font-family: Consolas, serif;
   font-weight: bold;
   font-size: 40px;
-
-  height: 40px;
   width: 50vw;
 
   margin: 30px 20px;
 
   word-wrap: break-word;
+}
+
+#result {
+  text-align: right;
+  font-family: Consolas, serif;
+  font-size: 35px;
+
+  margin: 30px 20px;
 }
