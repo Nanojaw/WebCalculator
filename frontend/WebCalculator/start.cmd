@@ -1,0 +1,1 @@
+npm i && wasm-pack build backends/backend_rust/rust-to-wasm && ng serve
