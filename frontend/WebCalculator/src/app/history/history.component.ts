@@ -9,6 +9,7 @@ export class HistoryComponent implements OnInit {
   @Input() history: string[] = [];
 
   @Output() clickedHistory = new EventEmitter<string>();
+  @Output() clearHistory = new EventEmitter<null>();
 
   constructor() {}
 
@@ -16,5 +17,9 @@ export class HistoryComponent implements OnInit {
 
   selected(action: string) {
     this.clickedHistory.emit(action);
+  }
+
+  clear() {
+    this.clearHistory.emit();
   }
 }

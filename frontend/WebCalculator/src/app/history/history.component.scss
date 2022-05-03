@@ -1,3 +1,9 @@
+#clearHistory {
+  width: 100%;
+
+  font-size: 20px;
+}
+
 #history-list {
   list-style-type: none;
 
@@ -7,4 +13,5 @@
 
 .history-button {
   margin: 2.5px;
+  background-color: transparent;
 }

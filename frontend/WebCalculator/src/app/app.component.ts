@@ -211,4 +211,8 @@ export class AppComponent {
     this.cursor = action.length;
     this.display();
   }
+
+  clearHistory() {
+    this.history = [];
+  }
 }

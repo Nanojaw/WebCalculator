@@ -1,3 +1,4 @@
+<button id="clearHistory" (click)="clear()">Clear History</button>
 <ul id="history-list">
   <li *ngFor="let action of history">
     <button class="history-button" (click)="selected(action)">{{action}}</button>
