@@ -8,6 +8,7 @@ import {ExpressionComponent} from './expression/expression.component';
 import {SearchComponent} from './search/search.component';
 import {FunctionComponent} from './function/function.component';
 import {FormsModule} from "@angular/forms";
+import { SearchFilterPipe } from './search-filter.pipe';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import {FormsModule} from "@angular/forms";
     ExpressionComponent,
     SearchComponent,
     FunctionComponent,
+    SearchFilterPipe,
   ],
   imports: [BrowserModule, FormsModule],
   providers: [],

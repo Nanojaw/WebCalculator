@@ -1,6 +1,6 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-
-import { func, funcs } from '../funcs';
+import { SearchFilterPipe } from '../search-filter.pipe';
+import { funcs } from '../funcs';
 
 @Component({
   selector: 'app-search',
@@ -10,7 +10,7 @@ import { func, funcs } from '../funcs';
 export class SearchComponent implements OnInit {
   functions = funcs;
 
-  search = '';
+  searched = '';
 
   @Output() addEvt = new EventEmitter<string>();
 
@@ -20,13 +20,5 @@ export class SearchComponent implements OnInit {
 
   add(expression: string) {
     this.addEvt.emit(expression);
-  }
-
-  submit(event: KeyboardEvent) {
-    if (event.key == 'Enter') {
-      // TODO Piping
-    }
-    else if (event.key == 'Backspace') this.search = this.search.slice(0, this.search.length - 1);
-    else if (/[a-z]/.test(event.key)) this.search = this.search.concat(event.key);
   }
 }

@@ -1,6 +1,6 @@
-<input id="search-input" (keyup)="submit($event)">
+<input id="search-input" [(ngModel)]=searched>
 <ul id="search-results">
-  <li *ngFor="let func of functions">
+  <li *ngFor="let func of functions | searchFilter: searched">
     <app-function [name]="func.name" [description]="func.description" [expression]="func.expression" (addEvt)="add($event)"></app-function>
   </li>
 </ul>
